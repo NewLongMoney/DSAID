@@ -5,12 +5,12 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'DSAID - Digital Solutions for Africa\'s Integrated Development',
-  description: 'Bridging the digital divide in rural Kenya through Solar Mobile Computer Labs, international curriculum training, and educational technology solutions.',
-  keywords: 'DSAID, Digital Solutions, Africa, Kenya, ICT training, Solar Mobile Computer Lab, rural development, homeschooling, international curriculum, teacher training',
-  authors: [{ name: 'DSAID Organization' }],
-  creator: 'DSAID',
-  publisher: 'DSAID',
+  title: 'DSAID · Digital Solutions for Africa\'s Integrated Development',
+  description: 'Solar-powered mobile computer laboratories and sustainable technology initiatives empowering rural Kenya since 2007.',
+  keywords: 'DSAID, digital education, solar labs, Kenya, technology, sustainability, e-waste recycling, rural development',
+  authors: [{ name: 'DSAID Kenya' }],
+  creator: 'DSAID Kenya',
+  publisher: 'DSAID Kenya',
   formatDetection: {
     email: false,
     address: false,

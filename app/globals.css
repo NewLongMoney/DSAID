@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -24,6 +26,7 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 214 100% 35%;
     --radius: 0.75rem;
+    --emerald: 16 100% 50%;
   }
 
   .dark {
@@ -55,24 +58,43 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .section-header {
+    font-family: 'Space Grotesk', sans-serif;
   }
 }
 
 @layer components {
   .glass {
-    @apply bg-white/20 backdrop-blur-xl border border-white/20;
+    background-color: rgb(255 255 255 / 0.12);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgb(255 255 255 / 0.18);
+    box-shadow: 0 8px 32px 0 rgb(0 0 0 / 0.12);
   }
 
-  .glass-dark {
-    @apply bg-black/20 backdrop-blur-xl border border-white/10;
+  .dark .glass {
+    background-color: rgb(0 0 0 / 0.25);
+    border: 1px solid rgb(255 255 255 / 0.08);
   }
 
   .glass-card {
-    @apply bg-white/10 backdrop-blur-lg border border-white/20 shadow-xl;
+    background-color: rgb(255 255 255 / 0.1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgb(255 255 255 / 0.2);
+    box-shadow: 0 8px 32px 0 rgb(0 0 0 / 0.12);
   }
 
   .glass-hover {
-    @apply transition-all duration-300 hover:bg-white/20 hover:shadow-2xl;
+    @apply transition-all duration-300;
+  }
+  
+  .glass-hover:hover {
+    background-color: rgb(255 255 255 / 0.2);
+    box-shadow: 0 16px 64px 0 rgb(0 0 0 / 0.2);
   }
 
   .text-gradient {
@@ -80,7 +102,23 @@
   }
 
   .hover-lift {
-    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+    @apply transition-all duration-300;
+  }
+  
+  .hover-lift:hover {
+    @apply -translate-y-1 shadow-lg;
+  }
+
+  .nav-link {
+    @apply transition-all duration-300;
+  }
+  
+  .nav-link:hover {
+    @apply -translate-y-1 text-emerald-400;
+  }
+
+  .count-up {
+    font-variant-numeric: tabular-nums;
   }
 }
 
@@ -91,8 +129,8 @@
   }
 
   @keyframes pulse-glow {
-    0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
-    50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.8); }
+    0%, 100% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.5); }
+    50% { box-shadow: 0 0 40px rgba(16, 185, 129, 0.8); }
   }
 
   @keyframes shimmer {
@@ -116,6 +154,11 @@
     100% { transform: scale(1.05); }
   }
 
+  @keyframes orbit {
+    from { transform: rotate(0deg) translateX(30px) rotate(0deg); }
+    to { transform: rotate(360deg) translateX(30px) rotate(-360deg); }
+  }
+
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
@@ -132,6 +175,10 @@
     animation: slow-zoom 20s ease-in-out infinite alternate;
   }
 
+  .solar-orbit {
+    animation: orbit 25s linear infinite;
+  }
+
   .shimmer {
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
     background-size: 1000px 100%;
@@ -141,4 +188,8 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
 }

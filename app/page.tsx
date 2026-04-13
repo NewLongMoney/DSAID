@@ -99,59 +99,59 @@ const testimonials: TestimonialItem[] = [
 
 const galleryItems: GalleryItem[] = [
   {
-    id: 'gallery1',
-    src: 'https://picsum.photos/id/1140/800/800',
-    alt: 'Students learning coding in solar-powered classroom',
-    caption: 'Students learning coding — Busia County',
+    id: 'budalangi1',
+    src: '/gallery/WhatsApp Image 2026-04-07 at 12.03.31 (1).jpeg',
+    alt: 'Patrick meeting with Hon. Wanjala, MP Budalangi',
+    caption: 'Meeting with Hon. Wanjala, MP Budalangi',
     size: 'large'
   },
   {
-    id: 'gallery2',
-    src: 'https://picsum.photos/id/1145/600/400',
-    alt: 'Solar panels on mobile laboratory',
-    caption: 'Solar array — Mobile Lab Unit #7',
+    id: 'budalangi2',
+    src: '/gallery/WhatsApp Image 2026-04-07 at 12.03.32 (1).jpeg',
+    alt: 'School visit in Budalangi constituency',
+    caption: 'School assessment — Budalangi',
     size: 'small'
   },
   {
-    id: 'gallery3',
-    src: 'https://picsum.photos/id/1150/600/400',
-    alt: 'Young woman using laptop in rural school',
-    caption: 'Digital literacy program — Siaya',
+    id: 'budalangi3',
+    src: '/gallery/WhatsApp Image 2026-04-07 at 12.03.32.jpeg',
+    alt: 'School infrastructure assessment',
+    caption: 'Infrastructure assessment — Budalangi',
     size: 'small'
   },
   {
-    id: 'gallery4',
-    src: 'https://picsum.photos/id/1155/600/400',
-    alt: 'Technical team setting up equipment',
-    caption: 'Lab installation — Homa Bay',
+    id: 'budalangi4',
+    src: '/gallery/WhatsApp Image 2026-04-07 at 12.03.32 (2).jpeg',
+    alt: 'Computer installation site preparation',
+    caption: 'Installation site preparation — Budalangi',
     size: 'small'
   },
   {
-    id: 'gallery5',
-    src: 'https://picsum.photos/id/1160/600/400',
-    alt: 'Students collaborating on digital projects',
-    caption: 'Collaborative learning — Migori',
+    id: 'budalangi5',
+    src: '/gallery/WhatsApp Image 2026-04-07 at 12.03.33 (1).jpeg',
+    alt: 'Community engagement during school visit',
+    caption: 'Community engagement — Budalangi',
     size: 'small'
   },
   {
-    id: 'gallery6',
-    src: 'https://picsum.photos/id/1165/600/400',
-    alt: 'Community leader receiving training',
-    caption: 'Community leader training',
+    id: 'budalangi6',
+    src: '/gallery/WhatsApp Image 2026-04-07 at 12.03.33.jpeg',
+    alt: 'Students at computer installation site',
+    caption: 'Students ready for digital learning — Budalangi',
     size: 'small'
   },
   {
-    id: 'gallery7',
-    src: 'https://picsum.photos/id/1170/600/400',
-    alt: 'Children learning basic computer skills',
-    caption: 'Primary digital skills — Kisumu',
+    id: 'budalangi7',
+    src: '/gallery/WhatsApp Image 2026-04-07 at 12.03.30 (1).jpeg',
+    alt: 'School building in Budalangi constituency',
+    caption: 'School facility — Budalangi',
     size: 'small'
   },
   {
-    id: 'gallery8',
-    src: 'https://picsum.photos/id/1175/600/400',
-    alt: 'Mobile computer lab deployment',
-    caption: 'Lab deployment — Turkana County',
+    id: 'budalangi8',
+    src: '/gallery/WhatsApp Video 2026-04-07 at 12.03.33 (1).mp4',
+    alt: 'Video of Budalangi school visit',
+    caption: 'Field visit documentation — Budalangi',
     size: 'small'
   }
 ]
@@ -272,7 +272,7 @@ export default function HomePage() {
           >
             <div className="w-10 h-10 bg-gray-900/90 backdrop-blur-sm rounded-lg flex items-center justify-center shadow-xl border border-gray-800/50 overflow-hidden">
               <img 
-                src="/dsa-logo.svg" 
+                src="/dsa-logo.png" 
                 alt="DSAID Logo" 
                 className="w-full h-full object-contain p-1"
               />
@@ -935,11 +935,22 @@ export default function HomePage() {
                 whileHover={{ scale: 1.05 }}
                 className={`relative overflow-hidden rounded-lg group bg-white/10 backdrop-blur-sm ${item.size === 'large' ? 'lg:col-span-2 lg:row-span-2' : ''} hover:bg-white/20 transition-all duration-300`}
               >
-                <img 
-                  src={item.src}
-                  alt={item.alt}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 brightness-75 saturate-80 group-hover:brightness-55 group-hover:saturate-60"
-                />
+                {item.src.endsWith('.mp4') ? (
+                  <video 
+                    src={item.src}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  />
+                ) : (
+                  <img 
+                    src={item.src}
+                    alt={item.alt}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 brightness-75 saturate-80 group-hover:brightness-55 group-hover:saturate-60"
+                  />
+                )}
                 <motion.div 
                   initial={{ opacity: 0 }}
                   whileHover={{ opacity: 1 }}
@@ -1157,7 +1168,7 @@ export default function HomePage() {
               <div className="flex items-center gap-3 mb-3.5">
                 <div className="w-9 h-9 bg-yellow-400/80 backdrop-blur-sm rounded-lg flex items-center justify-center shadow-lg border border-gray-800/50 overflow-hidden">
                   <img 
-                    src="/dsa-logo.svg" 
+                    src="/dsa-logo.png" 
                     alt="DSAID Logo" 
                     className="w-full h-full object-contain p-0.5"
                   />

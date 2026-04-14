@@ -161,6 +161,7 @@ export default function Home() {
   const [selectedAmount, setSelectedAmount] = useState('1000')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [counters, setCounters] = useState<{ [key: string]: string }>({})
+  const [animatedCounters, setAnimatedCounters] = useState<Set<string>>(new Set())
   const [currentSlide, setCurrentSlide] = useState(0)
 
   const heroRef = useRef<HTMLDivElement>(null)
@@ -199,9 +200,10 @@ export default function Home() {
     const counterObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && !counters[entry.target.id]) {
+          if (entry.isIntersecting && !animatedCounters.has(entry.target.id)) {
             const target = parseInt(entry.target.getAttribute('data-target') || '0')
             const suffix = entry.target.getAttribute('data-suffix') || ''
+            setAnimatedCounters(prev => new Set(prev).add(entry.target.id))
             animateCounter(entry.target.id, target, suffix)
           }
         })
